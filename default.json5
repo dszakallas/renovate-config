@@ -20,15 +20,15 @@
     },
     {
       "matchUpdateTypes": ["major"],
-      "labels": ["dep:major"]
+      "labels": ["dep/type:major"]
     },
     {
       "matchUpdateTypes": ["minor"],
-      "labels": ["dep:minor"]
+      "labels": ["dep/type:minor"]
     },
     {
       "matchUpdateTypes": ["patch"],
-      "labels": ["dep:patch"]
+      "labels": ["dep/type:patch"]
     }
   ]
 }
