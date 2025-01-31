@@ -74,5 +74,13 @@
       "matchDatasources": ["helm"],
       "addLabels": ["dep/source:helm"]
     },
+    {
+      "matchDatasources": ["terraform-provider"],
+      "addLabels": ["dep/source:terraform"]
+    },
+    {
+      "matchDatasources": ["npm"],
+      "addLabels": ["dep/source:npm"]
+    },
   ],
 }
