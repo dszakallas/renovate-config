@@ -13,6 +13,34 @@
   "dependencyDashboardTitle": "Dependency Dashboard 🤖",
   "suppressNotifications": ["prEditedNotification", "prIgnoreNotification"],
   "ignorePaths": ["**/*.sec.*"],
+
+  // GitHub Actions Renovate configuration for managing workflow updates
+  "github-actions": {
+    "fileMatch": [
+      "\\.github/workflows/.*\\.ya?ml$", // Matches all workflow YAML files
+      "\\.github/workflows/.*\\.ya?ml\\.j2$" // Matches Jinja2 templated workflow files
+    ],
+    "enabled": true, // Enable GitHub Actions updates
+    "updateTypes": ["major", "minor", "patch", "digest", "pin"], // Allow updates for all version types
+    "semanticCommitScope": "github-action",
+  "branchPrefix": "renovate/gha-",
+  },
+
+  // Dockerfile Renovate configuration for managing image updates
+  "docker": {
+    "fileMatch": [
+      "Dockerfile$", // Matches Dockerfile files regardless of their path
+      "docker-compose\\.ya?ml$", // Matches docker-compose files
+      "docker-compose\\.ya?ml\\.j2$", // Matches Jinja2 templated docker-compose files
+      "\\.github/workflows/.*\\.ya?ml$", // Matches all workflow YAML files
+      "\\.github/workflows/.*\\.ya?ml\\.j2$", // Matches Jinja2 templated workflow files
+    ],
+    "branchPrefix": "renovate/container-",
+    "enabled": true, // Enable image updates
+    "updateTypes": ["major", "minor", "patch", "digest", "pin"], // Allow updates for all version types
+    "semanticCommitScope": "container",
+  },
+
   "packageRules": [
     // labels
     {
@@ -29,6 +57,22 @@
     {
       "matchUpdateTypes": ["patch"],
       "labels": ["dep/type:patch"]
-    }
-  ]
+    },
+    {
+      "matchUpdateTypes": ["digest"],
+      "labels": ["dep/type:digest"]
+    },
+    {
+      "matchDatasources": ["github-releases", "github-tags"],
+      "addLabels": ["dep/source:github"]
+    },
+    {
+      "matchDatasources": ["docker"],
+      "addLabels": ["dep/source:container"]
+    },
+    {
+      "matchDatasources": ["helm"],
+      "addLabels": ["dep/source:helm"]
+    },
+  ],
 }
