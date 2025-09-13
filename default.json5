@@ -41,11 +41,9 @@
     "semanticCommitScope": "container",
   },
 
+  "labels": ["dep"],
+
   "packageRules": [
-    // labels
-    {
-      "labels": ["dep"]
-    },
     {
       "matchUpdateTypes": ["major"],
       "labels": ["dep/type:major"]
