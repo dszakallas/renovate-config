@@ -46,19 +46,19 @@
   "packageRules": [
     {
       "matchUpdateTypes": ["major"],
-      "labels": ["dep/type:major"]
+      "addLabels": ["dep/type:major"]
     },
     {
       "matchUpdateTypes": ["minor"],
-      "labels": ["dep/type:minor"]
+      "addLabels": ["dep/type:minor"]
     },
     {
       "matchUpdateTypes": ["patch"],
-      "labels": ["dep/type:patch"]
+      "addLabels": ["dep/type:patch"]
     },
     {
       "matchUpdateTypes": ["digest"],
-      "labels": ["dep/type:digest"]
+      "addLabels": ["dep/type:digest"]
     },
     {
       "matchDatasources": ["github-releases", "github-tags"],
