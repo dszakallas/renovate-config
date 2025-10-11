@@ -5,7 +5,7 @@
     ":disableRateLimiting",
     ":dependencyDashboard",
     ":semanticCommits",
-    ":timezone(Europe/Prague)"
+    ":timezone(Europe/Prague)",
   ],
   "commitMessageTopic": "{{depName}}",
   "commitMessageExtra": "to {{newVersion}}",
@@ -13,6 +13,9 @@
   "dependencyDashboardTitle": "Dependency Dashboard 🤖",
   "suppressNotifications": ["prEditedNotification", "prIgnoreNotification"],
   "ignorePaths": ["**/*.sec.*"],
+  "lockFileMaintenance": {
+    "enabled": true,
+  },
 
   // GitHub Actions Renovate configuration for managing workflow updates
   "github-actions": {
@@ -23,7 +26,7 @@
     "enabled": true, // Enable GitHub Actions updates
     "updateTypes": ["major", "minor", "patch", "digest", "pin"], // Allow updates for all version types
     "semanticCommitScope": "github-action",
-  "branchPrefix": "renovate/gha-",
+    "branchPrefix": "renovate/gha-",
   },
 
   // Dockerfile Renovate configuration for managing image updates
@@ -46,39 +49,43 @@
   "packageRules": [
     {
       "matchUpdateTypes": ["major"],
-      "addLabels": ["dep/type:major"]
+      "addLabels": ["dep/type:major"],
     },
     {
       "matchUpdateTypes": ["minor"],
-      "addLabels": ["dep/type:minor"]
+      "addLabels": ["dep/type:minor"],
     },
     {
       "matchUpdateTypes": ["patch"],
-      "addLabels": ["dep/type:patch"]
+      "addLabels": ["dep/type:patch"],
     },
     {
       "matchUpdateTypes": ["digest"],
-      "addLabels": ["dep/type:digest"]
+      "addLabels": ["dep/type:digest"],
     },
     {
       "matchDatasources": ["github-releases", "github-tags"],
-      "addLabels": ["dep/source:github"]
+      "addLabels": ["dep/source:github"],
     },
     {
       "matchDatasources": ["docker"],
-      "addLabels": ["dep/source:container"]
+      "addLabels": ["dep/source:container"],
     },
     {
       "matchDatasources": ["helm"],
-      "addLabels": ["dep/source:helm"]
+      "addLabels": ["dep/source:helm"],
     },
     {
       "matchDatasources": ["terraform-provider"],
-      "addLabels": ["dep/source:terraform"]
+      "addLabels": ["dep/source:terraform"],
     },
     {
       "matchDatasources": ["npm"],
-      "addLabels": ["dep/source:npm"]
+      "addLabels": ["dep/source:npm"],
+    },
+    {
+      "matchDatasources": ["nix"],
+      "addLabels": ["dep/source:nix"],
     },
   ],
 }
