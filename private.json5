@@ -1,0 +1,14 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "github>dszakallas/renovate-config//default.json5"
+  ],
+  "hostRules": [
+    {
+      "matchHost": "ghcr.io",
+      "hostType": "docker",
+      "username": "dszakallas",
+      "password": "{{ secrets.DSZAKALLAS_GHCR_TOKEN }}"
+    }
+  ]
+}
