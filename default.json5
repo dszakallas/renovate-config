@@ -43,6 +43,13 @@
     "semanticCommitScope": "container",
   },
 
+  // Go modules Renovate configuration
+  "gomod": {
+    "enabled": true,
+    "branchPrefix": "renovate/go-",
+    "semanticCommitScope": "deps",
+  },
+
   "labels": ["dep"],
 
   "packageRules": [
@@ -89,6 +96,15 @@
     {
       "matchDatasources": ["rubygems", "ruby-version"],
       "addLabels": ["dep/source:ruby"],
+    },
+    {
+      "matchManagers": ["gomod"],
+      "semanticCommitScope": "deps",
+      "addLabels": ["dep/source:go"],
+    },
+    {
+      "matchDatasources": ["go", "golang-version"],
+      "addLabels": ["dep/source:go"],
     },
   ],
 }
