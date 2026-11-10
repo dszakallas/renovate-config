@@ -11,6 +11,11 @@
   "commitMessageSuffix": "",
   "dependencyDashboardTitle": "Dependency Dashboard 🤖",
   "suppressNotifications": ["prEditedNotification", "prIgnoreNotification"],
+  // Allow autofix commits pushed by GitHub Actions (e.g. formatters, code generators)
+  // to be overwritten when Renovate rebases a branch.
+  "gitIgnoredAuthors": [
+    "41898282+github-actions[bot]@users.noreply.github.com",
+  ],
   "ignorePaths": ["**/*.sec.*"],
   "lockFileMaintenance": {
     "enabled": true,
