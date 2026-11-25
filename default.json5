@@ -16,11 +16,11 @@
   "gitIgnoredAuthors": [
     "41898282+github-actions[bot]@users.noreply.github.com",
   ],
+  "rebaseWhen": "conflicted",
   "ignorePaths": ["**/*.sec.*"],
   "lockFileMaintenance": {
     "enabled": true,
   },
-
   // GitHub Actions Renovate configuration for managing workflow updates
   "github-actions": {
     "fileMatch": [
